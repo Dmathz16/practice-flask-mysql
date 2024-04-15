@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+{% block content %}
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex mb-2">
+                        <button type="button" class="btn btn-secondary btn-sm ms-auto" onclick="window.location.href='{{ url_for('.index') }}'">
+                            <span class="tf-icons bx bx-arrow-back me-1"></span> Back
+                        </button>
+                        <button type="button" class="btn btn-success btn-sm ms-2" onclick="">
+                            <span class="tf-icons bx bx-save me-1"></span> Insert
+                        </button>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-bordered mb-0">
+
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Date Filed</th>
+                                    <th class="text-start">Farmer</th>
+                                    <th class="text-center">Animal</th>
+                                    <th class="text-center">Breed</th>
+                                    <th class="text-center">Heads</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-border-bottom-0">
+                
+                                <tr>
+                                    <td class="text-center">dsads</td>
+                                    <td class="text-start">dsads</td>
+                                    <td class="text-center">dsads</td>
+                                    <td class="text-center">dsads</td>
+                                    <td class="text-center">dsads</td>
+                                    <td class="text-center">
+                                        <span class="badge bg-info">Pending</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-info btn-sm">
+                                            <span class="tf-icons bx bx-show-alt me-1"></span>View
+                                        </button>
+                                    </td>
+                                </tr>
+                
+                                <tr>
+                                    <td class="text-center text-danger" colspan="7">No Record Found</td>
+                                </tr>
+                
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

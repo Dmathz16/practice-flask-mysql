@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+{% block content %}
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <form class="card-body">
+
+                    <div class="mb-3">
+                        <label for="username" class="fw-semibold">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+                    </div>
+
+                    <div class="mb-3 mb-4">
+                        <label for="password" class="fw-semibold">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                    </div>
+
+                    <div class="row align-items-center">
+                        <div class="col-12">
+                            <div class="text-end">
+                                <button class="btn btn-primary w-md waves-effect waves-light" type="submit">Log In</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
