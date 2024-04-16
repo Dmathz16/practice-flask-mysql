@@ -32,16 +32,16 @@
                         <span>Session Authentication</span>
                     </a>
                 </li>
-                <li class="sidebar-item {{ 'active' if data.title == 'Token Authentication' else '' }}">
-                    <a href="/authenticate-token" class="sidebar-link">
-                        <i class="lni lni-spinner-solid"></i>
-                        <span>Token Authentication</span>
-                    </a>
-                </li>
                 <li class="sidebar-item {{ 'active' if data.title == 'CRUD Page' else '' }}">
                     <a href="/crud-page" class="sidebar-link">
                         <i class="lni lni-spinner-solid"></i>
                         <span>CRUD Page</span>
+                    </a>
+                </li>
+                <li class="sidebar-item {{ 'active' if data.title == 'Token Authentication' else '' }}">
+                    <a href="/authenticate-token" class="sidebar-link">
+                        <i class="lni lni-spinner-solid"></i>
+                        <span>Token Authentication</span>
                     </a>
                 </li>
                 <li class="sidebar-item {{ 'active' if data.title == 'CRUD Modal' else '' }}">
@@ -107,10 +107,14 @@
                 {% endwith %}
 
                 {% if g.user %}
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <a href="/authenticate-session/">Session logged!</a>
-                    </div>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <a href="/authenticate-session/">Session logged!</a>
+                </div>
                 {% endif %}
+
+                <div id="alert_token" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
+                    <a href="/authenticate-token/">Token logged!</a>
+                </div>
 
                 {% block content %}
                 {% endblock %}
@@ -118,8 +122,10 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    {% block scripts %}{% endblock %}
 </body>
 
 </html>

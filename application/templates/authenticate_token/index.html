@@ -1,35 +1,100 @@
 {% extends "base.html" %}
 {% block title %}
-    {{ title }}
+    {{ data.title }}
 {% endblock %}
 {% block content %}
 
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <form class="card-body">
+<div class="alert alert-danger alert-dismissible fade show" role="alert" style="display: none;">
+    <div id="error"></div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
 
-                    <div class="mb-3">
-                        <label for="username" class="fw-semibold">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
-                    </div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
 
-                    <div class="mb-3 mb-4">
-                        <label for="password" class="fw-semibold">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
-                    </div>
+            <div class="card-body justify-content-center align-items-center" id="token_logged" style="display: none;">
+                <h5>Hello <b id="user">!</b></h5>
+                <a id="logout" href="javascript:void(0);" class="ms-auto btn btn-danger w-md waves-effect waves-light">Log Out</a>
+            </div>
 
-                    <div class="row align-items-center">
-                        <div class="col-12">
-                            <div class="text-end">
-                                <button class="btn btn-primary w-md waves-effect waves-light" type="submit">Log In</button>
-                            </div>
+            <form class="card-body" method="POST" id="form_add">
+
+                <div class="mb-3">
+                    <label for="username" class="fw-semibold">Username</label>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Enter username">
+                </div>
+
+                <div class="mb-3 mb-4">
+                    <label for="password" class="fw-semibold">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                </div>
+
+                <div class="row align-items-center">
+                    <div class="col-12">
+                        <div class="text-end">
+                            <button class="btn btn-primary w-md waves-effect waves-light" type="submit">Log In</button>
                         </div>
                     </div>
+                </div>
 
-                </form>
-            </div>
+            </form>
         </div>
     </div>
+</div>
 
+{% endblock %}
+
+{% block scripts %}
+<script>
+
+    function change_view()
+    {
+        $('#token_logged').slideUp().removeClass('d-flex')
+        $('#form_add').slideDown()
+        if (token) {
+            $('#token_logged').slideDown().addClass('d-flex')
+            $('#form_add').slideUp()
+        }
+    }
+
+    $(document).ready(function() {
+
+        $('#logout').click(function() {
+            logout()
+            check_token()
+            change_view()
+        })
+
+        $('#form_add').submit(function(e) {
+            e.preventDefault()
+            $.ajax({
+                url         : '{{ url_for(".post") }}',
+                type        : 'post',
+                data        : $(this).serialize(),
+                dataType    : 'JSON',
+                beforeSend  : function() {
+                    $('#error').parent().closest('div').slideUp()
+                }
+            }).done(function(res) {
+                if (res.error == '') {
+                    $(this).find('input[name="username"]').val('')
+                    $(this).find('input[name="password"]').val('')
+                    set_token(res.id)
+                    check_token()
+                    change_view()
+                } else {
+                    $('#error').text(res.error)
+                    $('#error').parent().closest('div').slideDown()
+                }
+            }).fail(function(err) {
+                console.log(err)
+            });
+
+        })
+
+        change_view()
+
+    })
+</script>
 {% endblock %}
