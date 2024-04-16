@@ -26,49 +26,49 @@
                 </div>
             </div>
             <ul class="sidebar-nav">
-                <li class="sidebar-item {{ 'active' if title == 'Session Authentication' else '' }}">
+                <li class="sidebar-item {{ 'active' if data.title == 'Session Authentication' else '' }}">
                     <a href="/authenticate-session" class="sidebar-link">
                         <i class="lni lni-spinner-solid"></i>
                         <span>Session Authentication</span>
                     </a>
                 </li>
-                <li class="sidebar-item {{ 'active' if title == 'Token Authentication' else '' }}">
+                <li class="sidebar-item {{ 'active' if data.title == 'Token Authentication' else '' }}">
                     <a href="/authenticate-token" class="sidebar-link">
                         <i class="lni lni-spinner-solid"></i>
                         <span>Token Authentication</span>
                     </a>
                 </li>
-                <li class="sidebar-item {{ 'active' if title == 'CRUD Page' else '' }}">
+                <li class="sidebar-item {{ 'active' if data.title == 'CRUD Page' else '' }}">
                     <a href="/crud-page" class="sidebar-link">
                         <i class="lni lni-spinner-solid"></i>
                         <span>CRUD Page</span>
                     </a>
                 </li>
-                <li class="sidebar-item {{ 'active' if title == 'CRUD Modal' else '' }}">
+                <li class="sidebar-item {{ 'active' if data.title == 'CRUD Modal' else '' }}">
                     <a href="/crud-modal" class="sidebar-link">
                         <i class="lni lni-spinner-solid"></i>
                         <span>CRUD Modal</span>
                     </a>
                 </li>
-                <li class="sidebar-item {{ 'active' if title == 'Date Manipulation' else '' }}">
+                <li class="sidebar-item {{ 'active' if data.title == 'Date Manipulation' else '' }}">
                     <a href="#" class="sidebar-link">
                         <i class="lni lni-spinner-solid"></i>
                         <span>Date Manipulation</span>
                     </a>
                 </li>
-                <li class="sidebar-item {{ 'active' if title == 'Data Manipulation' else '' }}">
+                <li class="sidebar-item {{ 'active' if data.title == 'Data Manipulation' else '' }}">
                     <a href="#" class="sidebar-link">
                         <i class="lni lni-spinner-solid"></i>
                         <span>Data Manipulation</span>
                     </a>
                 </li>
-                <li class="sidebar-item {{ 'active' if title == 'Encryption' else '' }}">
+                <li class="sidebar-item {{ 'active' if data.title == 'Encryption' else '' }}">
                     <a href="#" class="sidebar-link">
                         <i class="lni lni-spinner-solid"></i>
                         <span>Encryption</span>
                     </a>
                 </li>
-                <li class="sidebar-item {{ 'active' if title == 'File Upload' else '' }}">
+                <li class="sidebar-item {{ 'active' if data.title == 'File Upload' else '' }}">
                     <a href="#" class="sidebar-link">
                         <i class="lni lni-spinner-solid"></i>
                         <span>File Upload</span>
@@ -86,7 +86,7 @@
         </aside>
         <div class="main p-3">
             <div class="text-center">
-                <h1 class="text-start">{{ title }}</h1>
+                <h1 class="text-start">{{ data.title }}</h1>
 
                 {% with messages = get_flashed_messages(with_categories=true) %}
                     {% if messages %}

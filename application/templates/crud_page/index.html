@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}
-    {{ title }}
+    {{ data.title }}
 {% endblock %}
 {% block content %}
 
@@ -9,13 +9,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex mb-2">
-                        <button type="button" class="btn btn-warning btn-sm ms-auto" onclick="window.location.href='{{ url_for('.add') }}'">
-                            <span class="tf-icons bx bx-plus me-1"></span>Print
-                        </button>
-                        <button type="button" class="btn btn-success btn-sm ms-2" onclick="window.location.href='{{ url_for('.add') }}'">
-                            <span class="tf-icons bx bx-plus me-1"></span>Export
-                        </button>
-                        <button type="button" class="btn btn-primary btn-sm ms-2" onclick="window.location.href='{{ url_for('.add') }}'">
+                        <button type="button" class="btn btn-primary btn-sm ms-auto" onclick="window.location.href='{{ url_for('.add') }}'">
                             <span class="tf-icons bx bx-plus me-1"></span>Add
                         </button>
                     </div>
@@ -25,37 +19,33 @@
 
                             <thead>
                                 <tr>
-                                    <th class="text-center">Date Filed</th>
-                                    <th class="text-start">Farmer</th>
-                                    <th class="text-center">Animal</th>
-                                    <th class="text-center">Breed</th>
-                                    <th class="text-center">Heads</th>
-                                    <th class="text-center">Status</th>
+                                    <th class="text-start">Username</th>
+                                    <th class="text-center">ID</th>
+                                    <th class="text-center">User Type</th>
                                     <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody class="table-border-bottom-0">
                 
-                                <tr>
-                                    <td class="text-center">dsads</td>
-                                    <td class="text-start">dsads</td>
-                                    <td class="text-center">dsads</td>
-                                    <td class="text-center">dsads</td>
-                                    <td class="text-center">dsads</td>
-                                    <td class="text-center">
-                                        <span class="badge bg-info">Pending</span>
-                                    </td>
-                                    <td class="text-center">
-                                        <button type="button" class="btn btn-info btn-sm text-white" onclick="window.location.href='{{ url_for('.view') }}'">
-                                            <span class="tf-icons bx bx-show-alt me-1"></span>View
-                                        </button>
-                                    </td>
-                                </tr>
-                
-                                <tr>
-                                    <td class="text-center text-danger" colspan="7">No Record Found</td>
-                                </tr>
-                
+                                {% if data.results: %}
+                                    {% for user in data.results: %}
+                                        <tr>
+                                            <td class="text-start">{{ user.username }}</td>
+                                            <td class="text-center">{{ user.userID }}</td>
+                                            <td class="text-center">{{ user.utName }}</td>
+                                            <td class="text-center">
+                                                <a class="btn btn-info btn-sm text-white" href="{{ url_for('.view', id=user.userID) }}">
+                                                    <span class="tf-icons bx bx-show-alt me-1"></span>View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else: %}
+                                    <tr>
+                                        <td class="text-center text-danger" colspan="4">No Record Found</td>
+                                    </tr>
+                                {% endif %}
+
                             </tbody>
                         </table>
                     </div>

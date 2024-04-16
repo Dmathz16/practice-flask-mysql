@@ -9,26 +9,25 @@
             <div class="card">
                 <form class="card-body" method="POST">
                     <div class="d-flex mb-2">
-                        <button type="button" class="btn btn-secondary btn-sm ms-auto" onclick="window.location.href='{{ url_for('.index') }}'">
+                        <a class="btn btn-secondary btn-sm ms-auto" href="{{ url_for('.view', id=data.id) }}">
                             <span class="tf-icons bx bx-arrow-back me-1"></span> Back
-                        </button>
+                        </a>
                         <button type="submit" class="btn btn-success btn-sm ms-2">
-                            <span class="tf-icons bx bx-save me-1"></span> Insert
+                            <span class="tf-icons bx bx-save me-1"></span> Update
                         </button>
                     </div>
                     
                     <div class="row g-3 mb-2">
                         <div class="col-12 col-md-3">
                             <label class="form-label">Username <span class="text-danger">*</span></label>
-                            <input type="text" name="username" id="username" class="form-control" Placeholder="Username" />
+                            <input type="text" name="username" id="username" class="form-control" value="{{ data.row.username }}" Placeholder="Username" readonly style="background-color: #ccc;" />
                         </div>
                         <div class="col-12 col-md-3">
                             <label class="form-label">User Type <span class="text-danger">*</span></label>
                             <select class="form-control" name="userTypeID" id="userTypeID">
-                                <option value="">&nbsp;</option>
                                 {% if data.user_types: %}
                                     {% for user_type in data.user_types: %}
-                                        <option value="{{ user_type.userTypeID }}" >{{ user_type.name }}</option>
+                                        <option value="{{ user_type.userTypeID }}" {{ 'selected' if user_type.userTypeID == data.row.userTypeID else '' }}>{{ user_type.name }}</option>
                                     {% endfor %}
                                 {% endif %}
                             </select>
