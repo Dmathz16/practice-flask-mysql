@@ -30,6 +30,7 @@ function get_name()
     $('#user').text(username+'!')
   }).fail(function(err) {
     console.log(err)
+    $('#logout').click()[0]
   });
 
 }

@@ -1,6 +1,8 @@
-from flask import abort, Blueprint, render_template, request, flash, session, g, redirect, url_for
+from flask import abort, Blueprint, render_template, request, flash, session, g, redirect, url_for, current_app
 
 import flask
+import jwt
+import datetime
 
 from application import db, bcrypt
 from application.lib import request_input, request_args
@@ -20,9 +22,7 @@ def index():
 def post():
 
     error   = ''
-    id      = 0
-
-    print(request_input("username"))
+    token   = ''
 
     requests = {
         "username": request_input("username"), 
@@ -37,19 +37,28 @@ def post():
         elif not bcrypt.check_password_hash(user.password, requests.get("password")):
             error = 'Incorrect password.'
         else:
-            id = user.userID
+            payload = {
+                'id': user.userID,
+                # 'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=10)  # Token expiration time
+                'exp': datetime.datetime.utcnow() + datetime.timedelta(days=1)  # Token expiration time
+            }
+            token = jwt.encode(payload, current_app.config.get('SECRET_KEY'), algorithm='HS256')
     else:
         error = 'Please fill all fields.'
     
     return {
-        'id': id, 
+        'id': token, 
         'error': error 
     }
 
 @authenticate_token.route('/authenticate-token/api/', methods=['GET'])
 def get():
+    
+    payload = jwt.decode(request_args("id"), current_app.config.get('SECRET_KEY'), algorithms=["HS256"])
+    
+    user = User.query.filter(User.userID==payload['id']).first()
+    
     username = ''
-    user = User.query.filter(User.userID==request_args("id")).first()
     if user is not None:
         username = user.username
     return { 'username': username }

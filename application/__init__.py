@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -15,7 +17,8 @@ DB_NAME     = "practice_flask"
 def create_app():
     
     app = Flask(__name__)
-    app.config['SECRET_KEY'] = 'This is secret'
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'My Secret Key'
+    app.config['SECRET_KEY'] = SECRET_KEY
     app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{DB_USERNAME}:{DB_PASSWORD}@{DB_SERVER}:{DB_PORT}/{DB_NAME}'
     
     db.init_app(app)
