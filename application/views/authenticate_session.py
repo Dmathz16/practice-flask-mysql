@@ -12,6 +12,9 @@ authenticate_session = Blueprint('authenticate_session', __name__)
 
 # starting
 @authenticate_session.route('/')
+def welcome():
+    return redirect(url_for('authenticate_session.index'))
+
 @authenticate_session.route('/authenticate-session/', methods=['GET', 'POST'])
 def index():
     
