@@ -7,27 +7,35 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <form class="card-body" method="POST">
-
-                    <div class="mb-3">
-                        <label for="username" class="fw-semibold">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+                {% if g.user %}
+                    <div class="card-body d-flex justify-content-center align-items-center">
+                        <h5>Hello <b>{{ g.user['username'] }}!</b></h5>
+                        <a href="{{ url_for('authenticate_session.logout') }}" class="ms-auto btn btn-danger w-md waves-effect waves-light">Log Out</a>
                     </div>
+                {% else %}
+                    <form class="card-body" method="POST">
 
-                    <div class="mb-3 mb-4">
-                        <label for="password" class="fw-semibold">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
-                    </div>
+                        <div class="form-group mb-3">
+                            <label for="username" class="fw-semibold">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+                        </div>
 
-                    <div class="row align-items-center">
-                        <div class="col-12">
-                            <div class="text-end">
-                                <button class="btn btn-primary w-md waves-effect waves-light" type="submit">Log In</button>
+                        <div class="mb-3 mb-4">
+                            <label for="password" class="fw-semibold">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                        </div>
+
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <div class="text-end">
+                                    <button class="btn btn-primary w-md waves-effect waves-light" type="submit">Log In</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                </form>
+                    </form>
+                {% endif %}
+                
             </div>
         </div>
     </div>
