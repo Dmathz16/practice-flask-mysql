@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}
+    {{ data.title }}
+{% endblock %}
+{% block content %}
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="w-100 text-start">Date from database: <span>{{ data.testDate }}</span></h4>
+                    <h4 class="w-100 text-start">Variable Name: <span>testDate</span></h4>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hovered mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Output</th>
+                                    <th class="text-center">Code for DATETIME datatype</th>
+                                    <th class="text-center">Code for String datatype</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td class="text-center">{{ data.test1A }}</td>
+                                    <td class="text-center">testDate.strftime("%B %#d, %Y %I:%M %p")</td>
+                                    <td class="text-center">datetime.strptime(testDateString, "%Y-%m-%d %H:%M:%S").strftime("%B %#d, %Y %I:%M %p")</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-center">{{ data.test2A }}</td>
+                                    <td class="text-center">testDate.strftime("%b %d/%y %H:%M %p").lower()</td>
+                                    <td class="text-center">datetime.strptime(testDateString, "%Y-%m-%d %H:%M:%S").strftime("%b %d/%y %H:%M %p").lower()</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-center">{{ data.test3A }}</td>
+                                    <td class="text-center">testDate.strftime("%m/%d/%Y %H:%M:%S")</td>
+                                    <td class="text-center">datetime.strptime(testDateString, "%Y-%m-%d %H:%M:%S").strftime("%m/%d/%Y %H:%M:%S")</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

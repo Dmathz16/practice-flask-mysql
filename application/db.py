@@ -16,6 +16,7 @@ cursor.execute(f"USE {DB_NAME}")
 # drop tables
 cursor.execute("DROP TABLE IF EXISTS users")
 cursor.execute("DROP TABLE IF EXISTS user_types")
+cursor.execute("DROP TABLE IF EXISTS configurations")
 
 # create tables
 cursor.execute("""
@@ -33,6 +34,13 @@ cursor.execute("""
         FOREIGN KEY (userTypeID) REFERENCES user_types (userTypeID)
     ) ENGINE=InnoDB;
 """)
+cursor.execute("""
+    CREATE TABLE configurations (
+        configurationID INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(100) UNIQUE NOT NULL,
+        description DATETIME NOT NULL  
+    ) ENGINE=InnoDB;
+""")
 
 # insert necessary records
 cursor.execute("""
@@ -40,6 +48,11 @@ cursor.execute("""
     VALUES 
         ('Administrator'),
         ('Personnel');
+""")
+cursor.execute("""
+    INSERT INTO configurations (`name`, `description`)
+    VALUES 
+        ('Test Date', '2024-04-09 15:25:23');
 """)
 
 # commit queries

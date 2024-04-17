@@ -26,12 +26,20 @@ def create_app():
     
     from application.views.authenticate_session import authenticate_session
     from application.views.authenticate_token import authenticate_token
+    from application.views.form_validation import form_validation
     from application.views.crud_page import crud_page
     from application.views.crud_modal import crud_modal
+    from application.views.date_manipulation import date_manipulation
+    from application.views.data_manipulation import data_manipulation
+    from application.views.data_encryption import data_encryption
     
     app.register_blueprint(authenticate_session)
     app.register_blueprint(authenticate_token)
+    app.register_blueprint(form_validation)
     app.register_blueprint(crud_page)
     app.register_blueprint(crud_modal)
+    app.register_blueprint(date_manipulation)
+    app.register_blueprint(data_manipulation)
+    app.register_blueprint(data_encryption)
     
     return app

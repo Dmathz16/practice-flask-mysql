@@ -11,7 +11,7 @@ A flask module templates for fast development.
 * Form Validation [current]
 * Database Management (Page) [✓]
 * Database Management (Modal) (RESTful API) [✓]
-* Date Manipulation [current]
+* Date Manipulation [✓]
 * Data Manipulation [current]
 * Data Encryption [current]
 * File Upload
