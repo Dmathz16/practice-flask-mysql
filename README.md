@@ -12,11 +12,12 @@ A flask module templates for fast development.
 * Database Management (Page) [✓]
 * Database Management (Modal) (RESTful API) [✓]
 * Date Manipulation [✓]
-* Data Manipulation [current]
+* String Manipulation [✓]
+* Number Manipulation [?]
 * Data Encryption [✓]
-* File Upload
-* Generate PDF
-* Generate Excel
+* File Upload [current]
+* Generate PDF [current]
+* Generate Excel  [current]
 * Caching 
 
 **Intermediate:**
