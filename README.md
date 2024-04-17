@@ -4,11 +4,37 @@ A flask module templates for fast development.
 
 "**This UI used in this project is from [here](https://github.com/codzsword/sidebar-bootstrap) created by [codzsword](https://github.com/codzsword) with its [youtube video](https://www.youtube.com/watch?v=i7uJAOFEd4g).**"
 
-## Modules
-* Session authentication 
-* CRUD page 
-* Token authentication 
-* CRUD modal [current]
+## Modules as Backend Developer
+Basic:
+* Session authentication [✓]
+* Token authentication [✓]
+* Form Validation [current]
+* Database Management (Page) [✓]
+* Database Management (Modal) (RESTful API) [✓]
+* Date Manipulation
+* Data Manipulation 
+* Data Encryption 
+* File Upload
+* Generate PDF
+* Generate Excel
+* Caching
+* Third-party Services:
+  * Google Map
+  * Mapbox
+  * ...
+
+Intermediate:
+* Websocket
+* ...
+
+Advance: 
+* Machine learning integration
+* Blockchain integration
+* IOT integration
+* ...
+
+Expert: 
+* ...
 
 ## Requirements
 Windows:
