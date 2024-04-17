@@ -18,7 +18,10 @@ A flask module templates for fast development.
 * Generate PDF
 * Generate Excel
 * Caching 
+
+**Intermediate:**
 * Chatbot (Scripted)
+* Websocket
 * Third-party Services:
   * Google Map
   * Mapbox
@@ -26,22 +29,20 @@ A flask module templates for fast development.
   * Login with Facebook
   * Login with Google
   * ...
+* ...
 
-**Intermediate:**
-* Websocket
-* Exception Handling 
+**Advance:** 
+* Exception Handling
 * ML algorithms:
   * Decision tree
   * Random forest
   * ...
-
-**Advance:**
-* Machine learning integration
-* Blockchain integration
-* IOT integration
 * ...
 
 **Expert:** 
+* Machine learning integration
+* Blockchain integration
+* IOT integration
 * ...
 
 ## Requirements
