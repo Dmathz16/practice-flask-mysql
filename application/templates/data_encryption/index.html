@@ -7,7 +7,46 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                ds
+                <div class="card-body">
+                    <form class="table-responsive" method="POST">
+                        <table class="table table-bordered table-striped table-hovered mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Input</th>
+                                    <th class="text-center">Action</th>
+                                    <th class="text-center">Output</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td class="text-center">
+                                        <input type="text" name="forEncryption" class="form-control" value="{{ data.forEncryption }}" Placeholder="Data here..." />
+                                    </td>
+                                    <td class="text-center">
+                                        <button type="submit" class="btn btn-success btn-sm ms-2">
+                                            <span class="tf-icons bx bx-save me-1"></span> Encrypt
+                                        </button>
+                                    </td>
+                                    <td class="text-center">{{ data.encrypted }}</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="text-center">
+                                        <input type="text" name="forDecryption" class="form-control" value="{{ data.forDecryption }}" Placeholder="Data here..." />
+                                    </td>
+                                    <td class="text-center">
+                                        <button type="submit" class="btn btn-danger btn-sm ms-2">
+                                            <span class="tf-icons bx bx-save me-1"></span> Decrypt
+                                        </button>
+                                    </td>
+                                    <td class="text-center">{{ data.decrypted }}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
