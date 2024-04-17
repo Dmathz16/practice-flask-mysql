@@ -2,8 +2,6 @@
 
 A flask module templates for fast development.
 
-"**This UI used in this project is from [here](https://github.com/codzsword/sidebar-bootstrap) created by [codzsword](https://github.com/codzsword) with its [youtube video](https://www.youtube.com/watch?v=i7uJAOFEd4g).**"
-
 ## 📖 Modules as Backend Developer
 **Basic:**
 * Session authentication [✓]
@@ -78,3 +76,5 @@ Windows:
    ```
 8. Open [application](http://127.0.0.1:5000/)
 9. DONE!
+
+"**This UI used in this project is from [here](https://github.com/codzsword/sidebar-bootstrap) created by [codzsword](https://github.com/codzsword) with its [youtube video](https://www.youtube.com/watch?v=i7uJAOFEd4g).**"
