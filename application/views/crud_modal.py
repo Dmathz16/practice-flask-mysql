@@ -8,7 +8,7 @@ from application.model import User, UserType
 
 crud_modal = Blueprint('crud_modal', __name__)
 
-title = 'CRUD Modal'
+title = 'Management Modal (RESTful API)'
 
 @crud_modal.route('/crud-modal/')
 def index():

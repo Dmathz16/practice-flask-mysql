@@ -44,6 +44,26 @@ body {
     background-color: #0e2238;
     display: flex;
     flex-direction: column;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100vh;
+}
+
+#sidebar::-webkit-scrollbar {
+    width: 2px;
+}
+
+#sidebar::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+#sidebar::-webkit-scrollbar-thumb:hover {
+    background: #555; 
 }
 
 #sidebar.expand {

@@ -8,7 +8,7 @@ from application.model import User, UserType
 
 crud_page = Blueprint('crud_page', __name__)
 
-title = 'CRUD Page'
+title = 'Management Page'
 
 @crud_page.route('/crud-page/')
 def index():
