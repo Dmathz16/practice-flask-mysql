@@ -12,8 +12,9 @@ A flask module templates for fast development.
 * Database Management (Page) [✓]
 * Database Management (Modal) (RESTful API) [✓]
 * Date Manipulation [✓]
-* Data Manipulation [current]
-* Data Encryption [current]
+* String Manipulation [✓]
+* Number Manipulation [?]
+* Data Encryption [✓]
 * File Upload
 * Generate PDF
 * Generate Excel
