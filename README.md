@@ -17,24 +17,22 @@ A flask module templates for fast development.
 * File Upload
 * Generate PDF
 * Generate Excel
-* Caching
+* Caching 
+* Chatbot (Scripted)
 * Third-party Services:
   * Google Map
   * Mapbox
   * ...
 
-
 **Intermediate:**
 * Websocket
 * ...
-
 
 **Advance:**
 * Machine learning integration
 * Blockchain integration
 * IOT integration
 * ...
-
 
 **Expert:** 
 * ...
