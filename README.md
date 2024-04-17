@@ -23,6 +23,8 @@ A flask module templates for fast development.
   * Google Map
   * Mapbox
   * reCAPTCHA
+  * Login with Facebook
+  * Login with Google
   * ...
 
 **Intermediate:**
