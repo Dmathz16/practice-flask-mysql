@@ -5,7 +5,7 @@ A flask module templates for fast development.
 "**This UI used in this project is from [here](https://github.com/codzsword/sidebar-bootstrap) created by [codzsword](https://github.com/codzsword) with its [youtube video](https://www.youtube.com/watch?v=i7uJAOFEd4g).**"
 
 ## Modules as Backend Developer
-Basic:
+**Basic:**
 * Session authentication [✓]
 * Token authentication [✓]
 * Form Validation [current]
@@ -24,19 +24,19 @@ Basic:
   * ...
 
 
-Intermediate:
+**Intermediate:**
 * Websocket
 * ...
 
 
-Advance: 
+**Advance:**
 * Machine learning integration
 * Blockchain integration
 * IOT integration
 * ...
 
 
-Expert: 
+**Expert:** 
 * ...
 
 ## Requirements
