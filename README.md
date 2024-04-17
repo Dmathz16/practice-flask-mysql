@@ -18,6 +18,7 @@ A flask module templates for fast development.
 * Generate PDF
 * Generate Excel
 * Caching
+* Chatbot (Scripted)
 * Third-party Services:
   * Google Map
   * Mapbox
