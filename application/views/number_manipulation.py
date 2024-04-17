@@ -8,11 +8,11 @@ from application import db, bcrypt
 from application.lib import request_input
 from application.model import User
 
-data_manipulation = Blueprint('data_manipulation', __name__)
+number_manipulation = Blueprint('number_manipulation', __name__)
 
-title = 'Data Manipulation'
+title = 'Number Manipulation'
 
-@data_manipulation.route('/data-manipulation/')
+@number_manipulation.route('/number-manipulation/')
 def index():
     data = { "title": title }
-    return render_template('data_manipulation/index.html', data=data)
+    return render_template('number_manipulation/index.html', data=data)

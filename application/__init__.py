@@ -1,4 +1,4 @@
-import os
+import os, locale
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
@@ -30,7 +30,8 @@ def create_app():
     from application.views.crud_page import crud_page
     from application.views.crud_modal import crud_modal
     from application.views.date_manipulation import date_manipulation
-    from application.views.data_manipulation import data_manipulation
+    from application.views.string_manipulation import string_manipulation
+    from application.views.number_manipulation import number_manipulation
     from application.views.data_encryption import data_encryption
     
     app.register_blueprint(authenticate_session)
@@ -39,7 +40,8 @@ def create_app():
     app.register_blueprint(crud_page)
     app.register_blueprint(crud_modal)
     app.register_blueprint(date_manipulation)
-    app.register_blueprint(data_manipulation)
+    app.register_blueprint(string_manipulation)
+    app.register_blueprint(number_manipulation)
     app.register_blueprint(data_encryption)
     
     return app

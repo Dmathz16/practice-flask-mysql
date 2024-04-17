@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+{% block title %}
+    {{ data.title }}
+{% endblock %}
+{% block content %}
+
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form class="table-responsive" method="POST">
+                    <table class="table table-bordered table-hovered mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-start">Name</th>
+                                <th class="text-center">Code</th>
+                                <th class="text-center">Output</th>
+                                <th class="text-start">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr valign="middle">
+                                <td class="text-start">Padding Left</td>
+                                <td class="text-center">"12".ljust(10, '0')</td>
+                                <td class="text-center">{{ "12".ljust(10, '0') }}</td>
+                                <td class="text-start">
+                                    <ul style="list-style-type: none;">
+                                        <li style="list-style: disc;">"12" = changable string</li>
+                                        <li style="list-style: disc;">.ljust() = method used</li>
+                                        <li style="list-style: disc;">10 = number of paddings</li>
+                                        <li style="list-style: disc;">'0' = character used to pad</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr valign="middle">
+                                <td class="text-start">Padding Center</td>
+                                <td class="text-center">"12".center(10, '0')</td>
+                                <td class="text-center">{{ "12".center(10, '0') }}</td>
+                                <td class="text-start">
+                                    <ul style="list-style-type: none;">
+                                        <li style="list-style: disc;">"12" = changable string</li>
+                                        <li style="list-style: disc;">.center() = method used</li>
+                                        <li style="list-style: disc;">10 = number of paddings</li>
+                                        <li style="list-style: disc;">'0' = character used to pad</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr valign="middle">
+                                <td class="text-start">Padding Right</td>
+                                <td class="text-center">"12".rjust(10, '0')</td>
+                                <td class="text-center">{{ "12".rjust(10, '0') }}</td>
+                                <td class="text-start">
+                                    <ul style="list-style-type: none;">
+                                        <li style="list-style: disc;">"12" = changable string</li>
+                                        <li style="list-style: disc;">.rjust() = method used</li>
+                                        <li style="list-style: disc;">10 = number of paddings</li>
+                                        <li style="list-style: disc;">'0' = character used to pad</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr valign="middle">
+                                <td class="text-start">Slice</td>
+                                <td class="text-center">"Hello World!"[3:3+4]</td>
+                                <td class="text-center">{{ "Hello World!"[3:3+4] }}</td>
+                                <td class="text-start">
+                                    <ul style="list-style-type: none;">
+                                        <li style="list-style: disc;">"Hello World!" = changable string</li>
+                                        <li style="list-style: disc;">[start:end] = method used</li>
+                                        <li style="list-style: disc;">start: OR 6 = start of string</li>
+                                        <li style="list-style: disc;">:end OR 6+3 = end of string</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr valign="middle">
+                                <td class="text-start">Replace</td>
+                                <td class="text-center">"Hello world!".replace("world", "Python")</td>
+                                <td class="text-center">{{ "Hello world!".replace("world", "Python") }}</td>
+                                <td class="text-start">
+                                    <ul style="list-style-type: none;">
+                                        <li style="list-style: disc;">"Hello World!" = changable string</li>
+                                        <li style="list-style: disc;">.replace() = method used</li>
+                                        <li style="list-style: disc;">"world" = string you want to replace</li>
+                                        <li style="list-style: disc;">"Python" = string you replace</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr valign="middle">
+                                <td class="text-start">To lowercase</td>
+                                <td class="text-center">"Hello World!".lower()</td>
+                                <td class="text-center">{{ "Hello World!".lower() }}</td>
+                                <td class="text-start">
+                                    <ul style="list-style-type: none;">
+                                        <li style="list-style: disc;">"Hello World!" = changable string</li>
+                                        <li style="list-style: disc;">.lower() = method used</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr valign="middle">
+                                <td class="text-start">To uppercase</td>
+                                <td class="text-center">"Hello World!".upper()</td>
+                                <td class="text-center">{{ "Hello World!".upper() }}</td>
+                                <td class="text-start">
+                                    <ul style="list-style-type: none;">
+                                        <li style="list-style: disc;">"Hello World!" = changable string</li>
+                                        <li style="list-style: disc;">.upper() = method used</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr valign="middle">
+                                <td class="text-start">Capitalize</td>
+                                <td class="text-center">"hello world!".capitalize()</td>
+                                <td class="text-center">{{ "hello world!".capitalize() }}</td>
+                                <td class="text-start">
+                                    <ul style="list-style-type: none;">
+                                        <li style="list-style: disc;">"hello world!" = changable string</li>
+                                        <li style="list-style: disc;">.capitalize() = method used</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr valign="middle">
+                                <td class="text-start">Trim</td>
+                                <td class="text-center">"+++++Hello world+++".strip('+')</td>
+                                <td class="text-center">{{ "+++++Hello world+++".strip('+') }}</td>
+                                <td class="text-start">
+                                    <ul style="list-style-type: none;">
+                                        <li style="list-style: disc;">"+++++Hello world+++" = changable string</li>
+                                        <li style="list-style: disc;">.strip() = method used to remove leading and trailing chars</li>
+                                        <li style="list-style: disc;">'+' = character to remove</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr valign="middle">
+                                <td class="text-start">Split or Explode</td>
+                                <td class="text-center">"Hello world. It's a beautiful day.".split(" ")</td>
+                                <td class="text-center">{{ "Hello world. It's a beautiful day.".split(" ") }}</td>
+                                <td class="text-start">
+                                    <ul style="list-style-type: none;">
+                                        <li style="list-style: disc;">"Hello world. It's a beautiful day." = changable string</li>
+                                        <li style="list-style: disc;">.split() = method used to remove leading and trailing chars</li>
+                                        <li style="list-style: disc;">" " = separator</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr valign="middle">
+                                <td class="text-start">Join or Implode</td>
+                                <td class="text-center">" ".join(['Hello', 'world.', "It's", 'a', 'beautiful', 'day.'])</td>
+                                <td class="text-center">{{ " ".join(['Hello', 'world.', "It's", 'a', 'beautiful', 'day.']) }}</td>
+                                <td class="text-start">
+                                    <ul style="list-style-type: none;">
+                                        <li style="list-style: disc;">['Hello', 'world.', "It's", 'a', 'beautiful', 'day.'] = changable list</li>
+                                        <li style="list-style: disc;">.join() = method used to remove leading and trailing chars</li>
+                                        <li style="list-style: disc;">" " = connector</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}
+    {{ data.title }}
+{% endblock %}
+{% block content %}
+
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form class="table-responsive" method="POST">
+                    <table class="table table-bordered table-hovered mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-start">Name</th>
+                                <th class="text-center">Code</th>
+                                <th class="text-center">Output</th>
+                                <th class="text-start">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr valign="middle">
+                                <td class="text-start">Formatting</td>
+                                <td class="text-center">"{:,.2f}".format(1234567.256)</td>
+                                <td class="text-center">{{ "{:,.2f}".format(1234567.256) }}</td>
+                                <td class="text-start">
+                                    <ul style="list-style-type: none;">
+                                        <li style="list-style: disc;">1234567.256 = changable number</li>
+                                        <li style="list-style: disc;">.format() = method used</li>
+                                        <li style="list-style: disc;">:,.2f = format condition</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
