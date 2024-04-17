@@ -46,7 +46,7 @@ Note: If you want to contribute, please contact me in [messenger](https://www.me
 * IOT integration
 * ...
 
-## 📋 Requirements
+## 📋 Software Required
 Windows:
 * [python](https://www.python.org/downloads/)
 * mysql from [xampp](https://www.apachefriends.org/), [wamp](https://www.wampserver.com/en/) or other sources that you know.
@@ -79,4 +79,4 @@ Windows:
 8. Open [application](http://127.0.0.1:5000/)
 9. DONE!
 
-"**This UI used in this project is from [here](https://github.com/codzsword/sidebar-bootstrap) created by [codzsword](https://github.com/codzsword) with its [youtube video](https://www.youtube.com/watch?v=i7uJAOFEd4g).**"
+"**The UI used in this project is from [here](https://github.com/codzsword/sidebar-bootstrap) created by [codzsword](https://github.com/codzsword) with its [youtube video](https://www.youtube.com/watch?v=i7uJAOFEd4g).**"
