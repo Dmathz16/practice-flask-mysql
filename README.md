@@ -23,15 +23,18 @@ Basic:
   * Mapbox
   * ...
 
+
 Intermediate:
 * Websocket
 * ...
+
 
 Advance: 
 * Machine learning integration
 * Blockchain integration
 * IOT integration
 * ...
+
 
 Expert: 
 * ...
