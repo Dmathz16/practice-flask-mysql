@@ -27,6 +27,7 @@ A flask module templates for fast development.
 
 **Intermediate:**
 * Websocket
+* Exception Handling 
 * ML algorithms:
   * Decision tree
   * Random forest
