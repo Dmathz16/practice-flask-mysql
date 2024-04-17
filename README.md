@@ -22,6 +22,7 @@ A flask module templates for fast development.
 * Third-party Services:
   * Google Map
   * Mapbox
+  * reCAPTCHA
   * ...
 
 **Intermediate:**
