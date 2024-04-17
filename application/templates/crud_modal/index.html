@@ -3,5 +3,222 @@
     {{ data.title }}
 {% endblock %}
 {% block content %}
-    <h1>dwadw</h1>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex mb-2">
+                    <button type="button" class="btn btn-primary btn-sm ms-auto" onclick="$('#addModal').modal('show')">
+                        <span class="tf-icons bx bx-plus me-1"></span>Add
+                    </button>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="table table-bordered mb-0">
+
+                        <thead>
+                            <tr>
+                                <th class="text-start">Username</th>
+                                <th class="text-center">ID</th>
+                                <th class="text-center">User Type</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-border-bottom-0">
+            
+                            {% if data.results: %}
+                                {% for user in data.results: %}
+                                    <tr>
+                                        <td class="text-start">{{ user.username }}</td>
+                                        <td class="text-center">{{ user.userID }}</td>
+                                        <td class="text-center">{{ user.utName }}</td>
+                                        <td class="text-center">
+                                            {% if user.username != 'admin': %}
+                                            <a class="btn btn-warning btn-sm text-white" href="javascript:void(0);" onclick="ajax_get({{ user.userID }})">
+                                                <span class="tf-icons bx bx-show-alt me-1"></span>Edit
+                                            </a>
+                                            <a class="btn btn-danger btn-sm text-white ms-2" href="javascript:void(0);" onclick="ajax_delete({{ user.userID }})">
+                                                <span class="tf-icons bx bx-show-alt me-1"></span>Delete
+                                            </a>
+                                            {% else: %}
+                                            -
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            {% else: %}
+                                <tr>
+                                    <td class="text-center text-danger" colspan="4">No Record Found</td>
+                                </tr>
+                            {% endif %}
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block modals %}
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <form class="modal-content" id="form_add">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="addModalLabel">Add</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row g-3 mb-2">
+                    <div class="col-12">
+                        <label class="form-label">Username <span class="text-danger">*</span></label>
+                        <input type="text" name="username" id="username" class="form-control" Placeholder="Username" />
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">User Type <span class="text-danger">*</span></label>
+                        <select class="form-control" name="userTypeID" id="userTypeID">
+                            <option value="">&nbsp;</option>
+                            {% if data.user_types: %}
+                                {% for user_type in data.user_types: %}
+                                    <option value="{{ user_type.userTypeID }}" >{{ user_type.name }}</option>
+                                {% endfor %}
+                            {% endif %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Insert</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <form class="modal-content" id="form_edit">
+            <input type="hidden" name="id" id="id" class="form-control" />
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="editModalLabel">Edit</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row g-3 mb-2">
+                    <div class="col-12">
+                        <label class="form-label">Username</label>
+                        <input type="text" name="username" id="username" class="form-control" Placeholder="Username" readonly style="background-color: #ccc;" />
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">User Type <span class="text-danger">*</span></label>
+                        <select class="form-control" name="userTypeID" id="userTypeID">
+                            <option value="">&nbsp;</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+
+function ajax_get(id)
+{
+
+    $.ajax({
+        url         : '/crud-modal/api/'+id,
+        type        : 'get',
+        dataType    : 'JSON',
+        beforeSend  : function() {
+            $('#form_edit').find('input[name="id"]').val(id)
+        }
+    }).done(function(res) {
+
+        html = ''
+        if (res.user_types.length > 0) {
+            $.each(res.user_types, function(key, value) {
+                if (res.userTypeID == value.userTypeID) {
+                    html += '<option value="' + value.userTypeID + '" selected>' + value.name + '</option>'
+                } else {
+                    html += '<option value="' + value.userTypeID + '">' + value.name + '</option>'
+                }
+            })
+        }
+
+        $('#form_edit').find('select[name="userTypeID"]').html(html)
+        $('#form_edit').find('input[name="username"]').val(res.username)
+
+        $('#editModal').modal('show')
+    }).fail(function(err) {
+        console.log(err)
+    });
+
+}
+
+function ajax_delete(id)
+{
+
+    $.ajax({
+        url         : '/crud-modal/api/'+id,
+        type        : 'delete',
+        dataType    : 'JSON',
+        beforeSend  : function() { }
+    }).done(function(res) {
+        window.location.reload()
+    }).fail(function(err) {
+        console.log(err)
+    });
+
+}
+
+$(document).ready(function() {
+
+    $('#form_add').submit(function(e) {
+        e.preventDefault()
+        $.ajax({
+            url         : '/crud-modal/api/',
+            type        : 'post',
+            data        : $(this).serialize(),
+            dataType    : 'JSON',
+            beforeSend  : function() { }
+        }).done(function(res) {
+            if (res.error == '') {
+                window.location.reload()
+            } else {
+                alert(res.error)
+            }
+        }).fail(function(err) {
+            console.log(err)
+        });
+    })
+
+    $('#form_edit').submit(function(e) {
+        e.preventDefault()
+        $.ajax({
+            url         : '/crud-modal/api/'+$('#form_edit').find('input[name="id"]').val(),
+            type        : 'put',
+            data        : $(this).serialize(),
+            dataType    : 'JSON',
+            beforeSend  : function() { }
+        }).done(function(res) {
+            if (res.error == '') {
+                window.location.reload()
+            } else {
+                alert(res.error)
+            }
+        }).fail(function(err) {
+            console.log(err)
+        });
+    })
+
+})
+</script>
 {% endblock %}
