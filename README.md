@@ -2,6 +2,8 @@
 
 A flask module templates for fast development.
 
+Note: If you want to contribute, please contact me in [messenger](https://www.messenger.com/t/100031409211694).
+
 ## 📖 Modules as Backend Developer
 **Basic:**
 * Session authentication [✓]
