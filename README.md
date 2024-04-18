@@ -17,7 +17,7 @@ Note: If you want to contribute, please contact me in [messenger](https://www.me
 * Data Encryption [✓]
 * File Upload [current]
 * Generate PDF [✓]
-* Generate Excel  [current]
+* Generate Excel [✓]
 * Caching 
 
 **Intermediate:**

@@ -34,6 +34,7 @@ def create_app():
     from application.views.number_manipulation import number_manipulation
     from application.views.data_encryption import data_encryption
     from application.views.generate_pdf import generate_pdf
+    from application.views.generate_excel import generate_excel
     
     app.register_blueprint(authenticate_session)
     app.register_blueprint(authenticate_token)
@@ -45,5 +46,6 @@ def create_app():
     app.register_blueprint(number_manipulation)
     app.register_blueprint(data_encryption)
     app.register_blueprint(generate_pdf)
+    app.register_blueprint(generate_excel)
     
     return app
