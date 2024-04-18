@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}
+    {{ data.title }}
+{% endblock %}
+{% block content %}
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex">
+                        <a class="btn btn-primary btn-sm ms-auto" href="{{ url_for('.print') }}" target="_blank">
+                            <span class="tf-icons bx bx-plus me-1"></span>Print
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
