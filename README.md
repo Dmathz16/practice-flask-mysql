@@ -38,6 +38,7 @@ Note: If you want to contribute, please contact me in [messenger](https://www.me
   * Decision tree
   * Random forest
   * ...
+* Face Recognition
 * ...
 
 **Expert:** 
