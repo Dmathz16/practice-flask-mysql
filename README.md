@@ -15,7 +15,7 @@ Note: If you want to contribute, please contact me in [messenger](https://www.me
 * String Manipulation [✓]
 * Number Manipulation [?]
 * Data Encryption [✓]
-* File Upload [current]
+* File Upload [✓]
 * Generate PDF [✓]
 * Generate Excel [✓]
 * Caching 
