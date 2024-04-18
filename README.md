@@ -21,31 +21,31 @@ Note: If you want to contribute, please contact me in [messenger](https://www.me
 * Caching 
 
 **Intermediate:**
-* Chatbot (Scripted)
-* Websocket
-* Third-party Services:
-  * Google Map
-  * Mapbox
-  * reCAPTCHA
-  * Login with Facebook
-  * Login with Google
-  * ...
-* ...
+* Chatbot (Scripted) 
+* Websocket 
+* Third-party Services: 
+  * Google Map 
+  * Mapbox 
+  * reCAPTCHA 
+  * Login with Facebook 
+  * Login with Google 
+  * ... 
+* ... 
 
 **Advance:** 
-* Exception Handling
-* ML algorithms:
-  * Decision tree
-  * Random forest
-  * ...
-* Face Recognition
-* ...
+* Exception Handling 
+* ML algorithms: 
+  * Decision tree 
+  * Random forest 
+  * ... 
+* Face Recognition 
+* ... 
 
 **Expert:** 
-* Machine learning integration
-* Blockchain integration
-* IOT integration
-* ...
+* Machine learning integration 
+* Blockchain integration 
+* IOT integration 
+* ... 
 
 ## 📋 Software Required
 Windows:
