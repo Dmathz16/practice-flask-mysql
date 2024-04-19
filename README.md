@@ -22,7 +22,7 @@ Note: If you want to contribute, please contact me in [messenger](https://www.me
 
 **Intermediate:**
 * Chatbot (Scripted) 
-* Websocket 
+* Websocket [current]
 * Third-party Services: 
   * Google Map 
   * Mapbox 
