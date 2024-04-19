@@ -35,10 +35,10 @@ Note: If you want to contribute, please contact me in [messenger](https://www.me
 **Advance:** 
 * Exception Handling 
 * ML algorithms: 
-  * Decision tree 
+  * Decision tree [current]
   * Random forest 
   * ... 
-* Face Recognition 
+* Face Recognition [current]
 * ... 
 
 **Expert:** 
