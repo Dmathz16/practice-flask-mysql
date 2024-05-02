@@ -8,7 +8,7 @@ Note: If you want to contribute, please contact me in [messenger](https://www.me
 **Basic:**
 * Session authentication [✓]
 * Token authentication [✓]
-* Form Validation [current]
+* Form Validation [...]
 * Database Management (Page) [✓]
 * Database Management (Modal) (RESTful API) [✓]
 * Date Manipulation [✓]
@@ -35,10 +35,11 @@ Note: If you want to contribute, please contact me in [messenger](https://www.me
 **Advance:** 
 * Exception Handling 
 * ML algorithms: 
-  * Decision tree [current]
+  * Decision tree [...]
   * Random forest 
   * ... 
-* Face Recognition [current]
+* Face Recognition [...]
+* Speech to text [...]
 * ... 
 
 **Expert:** 
