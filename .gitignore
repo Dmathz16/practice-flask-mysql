@@ -1,0 +1,4 @@
+.venv/* 
+application/__pycache__/* 
+application/views/__pycache__/* 
+application/static/* 
